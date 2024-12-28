@@ -1,8 +1,10 @@
+
+
 [
     {
       "recipe_id": 1,
       "recipe_name": "Grilled Chicken Salad",
-      "image": "images/grilled_chicken_salad.jpg",
+      "image": "https://i.ibb.co.com/Z6zKcJB/foods.png",
       "description": "A healthy salad with grilled chicken, fresh veggies, and a tangy dressing.",
       "ingredients": [
         "250 g chicken breast",
@@ -17,7 +19,7 @@
     {
       "recipe_id": 2,
       "recipe_name": "Beef Stir Fry",
-      "image": "images/beef_stir_fry.jpg",
+      "image": "https://i.ibb.co.com/cCFLbLn/biriyani.png",
       "description": "A quick and tasty stir fry with tender beef and colorful vegetables.",
       "ingredients": [
         "300 g beef strips",
@@ -32,7 +34,7 @@
     {
       "recipe_id": 3,
       "recipe_name": "Pasta Carbonara",
-      "image": "images/pasta_carbonara.jpg",
+      "image": "https://i.ibb.co.com/W3W4NzX/burger.png",
       "description": "A creamy and delicious Italian pasta dish.",
       "ingredients": [
         "200 g spaghetti",
@@ -47,7 +49,7 @@
     {
       "recipe_id": 4,
       "recipe_name": "Vegetable Curry",
-      "image": "images/vegetable_curry.jpg",
+      "image": "https://i.ibb.co.com/cwDyP1j/food1.jpg",
       "description": "A flavorful curry made with a variety of fresh vegetables.",
       "ingredients": [
         "150 g potatoes",
@@ -62,7 +64,7 @@
     {
       "recipe_id": 5,
       "recipe_name": "Mango Smoothie",
-      "image": "images/mango_smoothie.jpg",
+      "image": "https://i.ibb.co.com/YPC5ndj/food2.jpg",
       "description": "A refreshing tropical smoothie with ripe mangoes.",
       "ingredients": [
         "200 g mango",
@@ -77,7 +79,7 @@
     {
       "recipe_id": 6,
       "recipe_name": "Tomato Soup",
-      "image": "images/tomato_soup.jpg",
+      "image": "https://i.ibb.co.com/NY04WGK/food3.jpg",
       "description": "A warm and comforting classic tomato soup.",
       "ingredients": [
         "300 g tomatoes",
