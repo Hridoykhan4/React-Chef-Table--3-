@@ -56,7 +56,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div class="navbar-end">
+        <div class="navbar-end hidden md:flex">
           <input
             className="inline"
             type="text"
@@ -67,14 +67,14 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="bg-[url('./images/hero-bg.png')] relative flex justify-center items-center my-2 min-h-[500px] bg-center rounded-lg">
-        <div className="absolute text-center flex flex-col justify-center items-center inset-0 bg-black bg-opacity-60">
+      <div style={{backgroundImage: 'url(./images/hero-bg.png)', backgroundBlendMode: 'overlay', backgroundColor: 'rgba(0,0,0,0.3)'}} className="flex justify-center py-4 md:py-28  items-center my-2  bg-center rounded-lg">
+        <div className=" text-center flex flex-col justify-center items-center ">
           <div className="">
-            <h2 className="font-bold leading-9 text-white text-4xl">
+            <h2 className="font-bold leading-9 text-white text-3xl md:text-4xl">
               A perfect blend of culinary artistry and <br /> warm hospitality
               awaits you.
             </h2>
-            <p className="font-semibold mx-auto my-6 w-1/2 text-white text-xl">
+            <p className="font-semibold mx-auto my-6 md:w-1/2 text-white text-xl">
               Whether you are here for a romantic dinner, a family gathering, or
               a casual meal with friends, our warm ambiance and exceptional
               service promise a memorable dining experience.
