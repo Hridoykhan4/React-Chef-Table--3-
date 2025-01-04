@@ -10,8 +10,8 @@ function DetailsTable({ cook, preparingCurrent, currentCook, time, calories }) {
           Want to cook: {cook.length}
         </h3>
 
-        <div class="overflow-x-auto">
-          <table class="table">
+        <div className="overflow-x-auto">
+          <table className="table">
             <thead>
               <tr>
                 <th></th>
@@ -57,8 +57,8 @@ function DetailsTable({ cook, preparingCurrent, currentCook, time, calories }) {
         <h3 className="text-2xl text-center font-semibold">
           Currently Cooking: {currentCook.length}
         </h3>
-        <div class="overflow-x-auto">
-          <table class="table">
+        <div className="overflow-x-auto">
+          <table className="table">
             <thead>
               <tr>
                 <th></th>
@@ -103,7 +103,7 @@ function DetailsTable({ cook, preparingCurrent, currentCook, time, calories }) {
 DetailsTable.propTypes = {
   cook: PropTypes.array.isRequired,
   preparingCurrent: PropTypes.func.isRequired,
-  currentCook: PropTypes.func.isRequired,
+  currentCook: PropTypes.array.isRequired,
   time: PropTypes.number.isRequired,
   calories: PropTypes.number.isRequired,
 };

@@ -2,64 +2,38 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Recipe from "../Recipe/Recipe";
 import DetailsTable from "../DetailsTable/DetailsTable";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
-const Recipes = () => {
+const Recipes = ({ handleSearch }) => {
   const [recipes, setRecipes] = useState([]);
   const [cook, setCook] = useState([]);
   const [currentCook, setCurrentCook] = useState([]);
-  const [time, setTime] = useState(0)
-  const [calories, setCalories] = useState(0)
+  const [time, setTime] = useState(0);
+  const [calories, setCalories] = useState(0);
 
-    const preparingCurrent = (p, getcalories, gettime) => {
-        setCalories(calories + getcalories)
-        setTime(time + gettime)
-        const remaining = cook.filter((item) => item.recipe_id !== p);
-         setCook(remaining)
-        const selectedOne = cook.filter((item) => item.recipe_id === p);
-        setCurrentCook([...currentCook, ...selectedOne]);
-    }
- 
+  const preparingCurrent = (p, getcalories, gettime) => {
+    setCalories(calories + getcalories);
+    setTime(time + gettime);
+    const remaining = cook.filter((item) => item.recipe_id !== p);
+    setCook(remaining);
+
+    const selectedOne = cook.filter((item) => item.recipe_id === p);
+    setCurrentCook([...currentCook, ...selectedOne]);
+    toast.success("Goes for Cooking,Sir!!");
+  };
 
   const handleCook = (p) => {
-    const id = document.getElementById(`btn-${p.recipe_id}`);
-
-    id.setAttribute("disabled", true);
-
     const isExist = cook.find((product) => product.recipe_id === p.recipe_id);
 
     if (!isExist) {
       setCook([...cook, p]);
-      handleShowModal();
+      toast.success("Thanks For Your Order");
     } else {
-      alertToast();
+      toast.error("Can't Add an Item Multiple Times");
     }
   };
 
-  const alertToast = () => {
-    const alertToast = document.getElementById("alertToast");
-    alertToast.classList.remove("hidden");
-
-    setTimeout(() => {
-      document.getElementById("alertToast").classList.add("hidden");
-    }, 3000);
-    return;
-  };
-
-  const handleShowModal = () => {
-    const showToast = document.getElementById("showToast");
-    showToast.classList.remove("hidden");
-    setTimeout(() => {
-      document.getElementById("showToast").classList.add("hidden");
-    }, 3000);
-  };
-
-  /*   
-  const handleCook = cookItem => {
-        setCook([...cook, cookItem])
-    }
-
-
- */
   useEffect(() => {
     fetch("chef.json")
       .then((res) => res.json())
@@ -67,7 +41,6 @@ const Recipes = () => {
   }, []);
   return (
     <div className="w-11/12 mx-auto">
-     
       <h3 className="text-2xl tracking-wide text-center font-semibold my-3">
         Our Recipes
       </h3>
@@ -77,31 +50,14 @@ const Recipes = () => {
         soup.
       </p>
 
-      <div id="showToast" class="toast toast-top toast-end hidden">
-        <div class="alert alert-success">
-          <div className="flex items-center flex-col text-white text-xl">
-            <p>Success ✅</p>
-            <span>Thanks For Your Order</span>
-          </div>
-        </div>
-      </div>
-
-      <div id="alertToast" class="toast toast-top toast-end hidden">
-        <div class="alert alert-success">
-          <div className="flex items-center flex-col text-white text-xl">
-            <p>Failed💔</p>
-            <span>Already Exist</span>
-          </div>
-        </div>
-      </div>
-
       <div className="flex sm:flex-row flex-col-reverse my-10 gap-10  justify-between">
         <div className="md:w-2/3">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {recipes.map((recipe) => (
+            {recipes.map((recipe, id) => (
               <Recipe
+                handleSearch={handleSearch}
                 handleCook={handleCook}
-                key={recipe.id}
+                key={id}
                 recipe={recipe}
               ></Recipe>
             ))}
@@ -109,11 +65,21 @@ const Recipes = () => {
         </div>
 
         <div className="md:w-1/3">
-          <DetailsTable time={time} calories={calories} currentCook={currentCook} preparingCurrent={preparingCurrent} cook={cook}></DetailsTable>
+          <DetailsTable
+            time={time}
+            calories={calories}
+            currentCook={currentCook}
+            preparingCurrent={preparingCurrent}
+            cook={cook}
+          ></DetailsTable>
         </div>
       </div>
     </div>
   );
+};
+
+Recipes.propTypes = {
+  handleSearch: PropTypes.func,
 };
 
 export default Recipes;

@@ -1,28 +1,30 @@
-const Header = () => {
+import PropTypes from "prop-types";
+
+const Header = ({ handleSearch }) => {
   return (
     <div className="w-11/12 mx-auto">
-      <div class="navbar bg-base-100">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+      <div className="navbar bg-base-100">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex="0" role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
             </div>
             <ul
-              tabindex="0"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              tabIndex="0"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <a>Home</a>
@@ -38,10 +40,10 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <a class="btn btn-ghost text-xl">Recipe Calories</a>
+          <a className="btn btn-ghost text-xl">Recipe Calories</a>
         </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="flex gap-3">
+        <div className="navbar-center hidden lg:flex">
+          <ul className="flex gap-3">
             <li>
               <a className="font-medium">Home</a>
             </li>
@@ -56,20 +58,31 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div class="navbar-end hidden md:flex">
+        <div className="navbar-end hidden md:flex">
           <input
-            className="inline"
+            onKeyUp={(e) => handleSearch(e)}
             type="text"
             placeholder="Search"
-            class="input input-bordered w-24 md:w-auto"
+            className="input input-bordered w-24 md:w-auto"
           />
-          <img className="w-8 ms-3" src="./icons8-person-40.png" alt="" />
+          <img
+            className="w-8 ms-3"
+            src="./icons8-person-40.png"
+            alt="User Icon"
+          />
         </div>
       </div>
 
-      <div style={{backgroundImage: 'url(./images/hero-bg.png)', backgroundBlendMode: 'overlay', backgroundColor: 'rgba(0,0,0,0.3)'}} className="flex justify-center py-4 md:py-28  items-center my-2  bg-center rounded-lg">
-        <div className=" text-center flex flex-col justify-center items-center ">
-          <div className="">
+      <div
+        style={{
+          backgroundImage: "url(./images/hero-bg.png)",
+          backgroundBlendMode: "overlay",
+          backgroundColor: "rgba(0,0,0,0.6)",
+        }}
+        className="flex justify-center py-4 md:py-28 items-center my-2 bg-center rounded-lg"
+      >
+        <div className="text-center flex flex-col justify-center items-center">
+          <div>
             <h2 className="font-bold leading-9 text-white text-3xl md:text-4xl">
               A perfect blend of culinary artistry and <br /> warm hospitality
               awaits you.
@@ -80,11 +93,17 @@ const Header = () => {
               service promise a memorable dining experience.
             </p>
           </div>
-          <button className="btn btn-success text-white">Explore Now</button>
+          <a href="#id" className="btn btn-success text-white">
+            Explore Now
+          </a>
         </div>
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  handleSearch: PropTypes.func,
 };
 
 export default Header;

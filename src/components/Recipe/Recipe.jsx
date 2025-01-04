@@ -13,13 +13,14 @@ const Recipe = ({ recipe, handleCook }) => {
     description,
     calories,
   } = recipe;
+
   return (
-    <div class="card card-compact bg-base-100 shadow-xl p-1">
-      <figure className="h-52">
+    <div className="card card-compact bg-base-100 shadow-xl p-1">
+      <figure className="h-52" id="id">
         <img className="w-full h-full object-cover" src={image} alt="Shoes" />
       </figure>
-      <div class="card-body">
-        <h2 class="card-title">{recipe_name}</h2>
+      <div className="card-body">
+        <h2 className="card-title">{recipe_name}</h2>
         <p className="text-gray-700 font-medium">{description}</p>
 
         <hr className="border-black border-opacity-20" />
@@ -67,6 +68,7 @@ const Recipe = ({ recipe, handleCook }) => {
 Recipe.propTypes = {
   recipe: PropTypes.object.isRequired,
   handleCook: PropTypes.func.isRequired,
+  // handleSearch:PropTypes.func.isRequired
 };
 
 export default Recipe;
